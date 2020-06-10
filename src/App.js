@@ -20,10 +20,11 @@ function App() {
 
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <h1>{nasaData.title}</h1>
+      <h3>{nasaData.date}</h3>
+      <img src={nasaData.url}></img>
+      <p>{nasaData.explanation}</p>
+      <footer>{nasaData.copyright}</footer>
     </div>
   );
 }
