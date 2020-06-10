@@ -18,11 +18,30 @@ function App() {
       return ()=>{}
   }, [])
 
+  const Button = () => {
+    return(
+      <button onClick={() => getDate()}>Click to change date</button>
+    )
+  }
+
+  const getDate = () => {
+    return(
+      <p>working</p>
+    )
+  }
+
+  // const changeDate = ()=> {
+
+  // }
+
   return (
     <div className="App">
       <h1>{nasaData.title}</h1>
-      <h3>{nasaData.date}</h3>
-      <img src={nasaData.url}></img>
+      <h3>{nasaData.date}</h3> 
+      <Button />
+      {
+        nasaData.url !== null ? <img src={nasaData.url} alt="nasa"/> : <p>Picture Loading</p>
+      }
       <p>{nasaData.explanation}</p>
       <footer>{nasaData.copyright}</footer>
     </div>
