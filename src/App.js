@@ -5,40 +5,41 @@ import "./App.css";
 
 function App() {
   const [nasaData, changeData] = useState([]);
+  const [buttonClickStatus, changeStatus] = useState(false);
+  const [hideDate, changeDisplayDate] = useState(true);
 
   useEffect(()=>{
-    axios.get(`${BASE_URL}?api_key=${API_KEY}`)
-      .then(res => {
-        changeData(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    // axios.get(`${BASE_URL}?api_key=${API_KEY}`)
+    //   .then(res => {
+    //     changeData(res.data);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
 
       return ()=>{}
   }, [])
 
-  const Button = () => {
-    return(
-      <button onClick={() => getDate()}>Click to change date</button>
+function ChangedButtonStatus(){
+  if (buttonClickStatus){
+    return (
+      <div>
+        <input type='date'/>
+        <button onClick={() => changeStatus(false)}>Submit</button>
+      </div>
     )
+  } else {
+    return <div></div>
   }
-
-  const getDate = () => {
-    return(
-      <p>working</p>
-    )
-  }
-
-  // const changeDate = ()=> {
-
-  // }
+}
 
   return (
     <div className="App">
       <h1>{nasaData.title}</h1>
       <h3>{nasaData.date}</h3> 
-      <Button />
+      <button onClick={() => changeStatus(true)}>Click to change date</button>
+      <ChangedButtonStatus />
+      <br></br>
       {
         nasaData.url !== null ? <img src={nasaData.url} alt="nasa"/> : <p>Picture Loading</p>
       }
