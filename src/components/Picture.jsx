@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ImgStyled = styled.img`
   width: 80%;
-  height: 30%;
+  height: 10%;
   border-radius: 10%;
   
 `
