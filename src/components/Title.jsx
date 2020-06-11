@@ -7,6 +7,10 @@ const TitleStyled = styled.h1`
     font-size: 300%;
     margin: 0;
     padding: 0;
+    text-shadow: -1px 1px 2px #DFE0DF,
+                                1px 1px 2px #DFE0DF,
+                                1px -1px 0 #DFE0DF,
+                                -1px -1px 0 #DFE0DF;
 `
 
 const H3styled = styled.h3`
